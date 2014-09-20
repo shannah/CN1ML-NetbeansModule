@@ -1,0 +1,5 @@
+Manifest-Version: 1.0
+OpenIDE-Module: ca.weblite.codename1.netbeans.cn1ml
+OpenIDE-Module-Localizing-Bundle: ca/weblite/codename1/netbeans/cn1ml/Bundle.properties
+OpenIDE-Module-Specification-Version: 1.0
+
