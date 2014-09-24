@@ -311,4 +311,4 @@ When, run in the simulator with the Lumia skin, this example looks like:
 1. [A Simple List](docs/samples/List.md)
 2. [A Contact Form](docs/samples/ContactForm.md)
 3. [A Map](docs/samples/Map.md)
-4. An embedded Web Browser
+4. [An embedded Web Browser](docs/samples/WebBrowser.md)
