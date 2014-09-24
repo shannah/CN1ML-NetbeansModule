@@ -4,13 +4,13 @@
 
 ##Contents
 
-1. [Synopsis](#Synopsis)
-2. [Motivation](#Motivation)
-3. [License](#License)
-4. [Installation](#Installation)
-5. [Usage](#Usage)
-	1. [Creating a New Template](#Creating-a-New-Template)
-	2. [Using The Template From Java](#Using-The-Template-From-Java)
+1. [Synopsis](#synopsis)
+2. [Motivation](#motivation)
+3. [License](#license)
+4. [Installation](#installation)
+5. [Usage](#usage)
+	1. [Creating a New Template](#creating-a-new-template)
+	2. [Using The Template From Java](#using-the-template-from-java)
 
 ##Synopsis
 
