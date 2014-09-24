@@ -285,4 +285,7 @@ The `MyNewForm` class can now be used like any other Java class in your Codename
     }
 ~~~
 
+When, run in the simulator with the Lumia skin, this examples looks like:
+
+![Lumia Skin My New Form Example](screenshots/my-new-form-lumia.png)
 
