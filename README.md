@@ -13,10 +13,11 @@
 	2. [Using The Template From Java](#using-the-template-from-java)
 6. [Samples](#more-samples)
 7. [Documentation](#documentation)
+8. [Credits](#credits)
 
 ##Synopsis
 
-This library converts HTML-ish files into Codename One UI Java classes.  It allows you to design templates for your Codename One UI components using a variant of HTML, and use them inside your Codename One applications.
+This library converts HTML-ish files into [Codename One](http://www.codenameone.com) UI Java classes.  It allows you to design templates for your Codename One UI components using a variant of HTML, and use them inside your Codename One applications.
 
 Conversion is done at compile time, so that:
 
@@ -319,3 +320,8 @@ When, run in the simulator with the Lumia skin, this example looks like:
 ##Documentation
 
 * [CN1ML Tag and Attribute Reference](docs/reference/Tags.md)
+
+## Credits
+
+* Thanks to the [Codename One](http://www.codenameone.com) team for developing Codename one.
+* This project developed and maintained by [Steve Hannah](http://sjhannah.com)
