@@ -4,6 +4,12 @@
 
 This sample is part of the [CN1MLDemos](../../CN1MLDemos) project.  It demonstrates how to create a simple contact form using CN1ML. It uses a combination of layouts, including a table for arranging the labels and fields of the form.
 
+####Some things to Notice:
+
+1. The `<body>` tag uses the shortcut `y` for the layout which CN1ML will automatically change to BoxLayout.Y_AXIS.
+2. The `<body>` tag also includes a `<script>` tag where some extra custom initialization is done.  In this case we make the root container scrollable.  Note that inside `<script>` tags, "self" always reference to the Component that corresponds to the `<script>` tag's immediate parent.
+
+
 ### CN1ML Source:
 From [ContactForm.cn1ml](../../CN1MLDemos/src/ca/weblite/codename1/cn1ml/demos/ContactForm.cn1ml)
 
