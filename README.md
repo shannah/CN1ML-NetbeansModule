@@ -27,6 +27,21 @@ Codename One already has a fantastic WYSIWYG GUI builder.  Why is this even nece
 
 I created this library because sometimes I want to express my UI structure using code or text.  The XML produced by the resource editor is not meant to be edited by humans.  Using Java directly to describe a component hierarchy quickly turns into a mess that is difficult to maintain.  I wanted a format that was simple to be hand-coded, and provided a simple birds-eye view of the UI component hierarchy.
 
+##Features
+
+
+1. Seamlessly compiles to actual Java class so there is no runtime performance penalty.
+2. Express any Codename One UI component hierarchy declaratively using HTML.
+3. Support for any layouts.
+4. Advanced table support, including `colspan` and `rowspan` support.
+5. Direct mapping of most HTML input types to corresponding UI Component type.  E.g. `<input type="text"/>` to `TextField`, and `<textarea>` to `TextArea`, etc..
+6. Support for Lists and ComboBoxes using `<select>` tag.
+7. `uiid` and client property support via `data-<property name>` attributes.
+8. Support for Images via the `<img>` tag, referencing either the resource file or the classpath.
+9. `<script>` tag support to embed Java directly in template if you need to perform custom initialization or decoration.
+10. Ability to pass data to the template for use inside `<script>` tags and attributes.
+11. Designed to be editable and readable by humans.
+
 ##License
 
 [Apache 2.0](http://www.apache.org/licenses/LICENSE-2.0.txt)
@@ -285,7 +300,14 @@ The `MyNewForm` class can now be used like any other Java class in your Codename
     }
 ~~~
 
-When, run in the simulator with the Lumia skin, this examples looks like:
+When, run in the simulator with the Lumia skin, this example looks like:
 
 ![Lumia Skin My New Form Example](screenshots/my-new-form-lumia.png)
 
+
+##More Samples
+
+1. A Simple List
+2. A Contact Form
+3. A Map
+4. An embedded Web Browser
