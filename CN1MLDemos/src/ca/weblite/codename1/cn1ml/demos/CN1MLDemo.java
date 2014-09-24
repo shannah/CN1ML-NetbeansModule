@@ -71,7 +71,8 @@ public class CN1MLDemo {
             "Simple List",
             "Contact Form",
             "Map",
-            "Web Browser"
+            "Web Browser",
+            "Default Sample Template",
         });
         final MainMenu m = new MainMenu(context);
         m.getMenuList().addActionListener(new ActionListener(){
@@ -86,6 +87,8 @@ public class CN1MLDemo {
                     showMap();
                 } else if ("Web Browser".equals(sel)){
                     showWebBrowser();
+                } else if ("Default Sample Template".equals(sel)){
+                    showMyNewForm();
                 }
             }
             

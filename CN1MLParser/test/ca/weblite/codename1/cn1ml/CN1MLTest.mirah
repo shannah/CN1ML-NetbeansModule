@@ -64,7 +64,7 @@ class CN1MLTest
     writer.preprocessDom(doc)
     puts doc.html
   end
-  */
+  
   
   $Test
   def testTransformSelectTag:void
@@ -84,6 +84,14 @@ class CN1MLTest
   $Test
   def testEscape:void
       assertEquals 'Washing\\"ton', CN1ML.new("foo.bar").escape('Washing"ton')
+  end
+  */
+  $Test
+  def testRooScript:void
+      html = "<body><script>self.setScrollable(true);</script></body>"
+      writer = CN1ML.new 'pkg.MyClass'
+      classText = writer.buildClass html
+      puts classText
   end
   
 end

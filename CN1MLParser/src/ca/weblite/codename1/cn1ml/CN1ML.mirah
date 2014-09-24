@@ -512,6 +512,7 @@ class CN1ML
     @varCounter += 1
     
     parentClassName = Element(el.parentNode).attr('java-className')
+    parentClassName = 'Container' if parentClassName.length == 0
     
     className = getElementUIClass(el)
     el.attr('java-className', className)
@@ -563,6 +564,8 @@ class CN1ML
       parentClassName:String):void
     @scriptIDCounter ||= 1
     if "script".equals scriptEl.tagName
+        
+      parentVarName = "null" if !parentVarName or parentVarName.length==0
       output << "init#{@scriptIDCounter}_#{varName}(#{varName}, #{parentVarName});\n"
       tailBuffer << "private void init#{@scriptIDCounter}_#{varName}(#{className} self, #{parentClassName} parent){\n" <<
         scriptEl.data << scriptEl.text << "\n}\n"

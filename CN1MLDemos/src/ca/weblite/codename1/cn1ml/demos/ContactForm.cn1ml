@@ -5,6 +5,7 @@
             self.setScrollableY(true);
         </script>
         <label uiid="Title">Contact Details</label>
+        
         <table>
             <tr>
                 <td>First Name</td>
