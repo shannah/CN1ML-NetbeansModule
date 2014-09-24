@@ -1,6 +1,10 @@
 ## CN1ML Sample: A Simple List
 
-This sample is part of the [CN1MLDemos](../../CN1MLDemos) project.  It demonstrates how to create a simple list using a `<select>` tag.
+[Return to Samples](../../README.md#samples)
+
+This sample is part of the [CN1MLDemos](../../CN1MLDemos) project.  It demonstrates how to create a simple list using a `<select>` tag.  Notice that the `<select>` tag includes the `size` attribute. Without it, the list would have been rendered as a Combo Box.
+
+In this case, the List contents are provided inside the template as `<option>` tags, however, you could also pass a reference to a context object to specify either the data or model of the list using either the `data` or `model` attribute of the `<select>` tag.  See the [Main Menu](MainMenu.md) example for a sample using the `data` attribute to specify the list contents.
 
 ### CN1ML Source:
 
@@ -92,3 +96,26 @@ class SimpleList {
 }
 
 ~~~
+
+### Usage
+
+From: [CN1MLDemo.java](../../CN1MLDemos/src/ca/weblite/codename1/cn1ml/demos/CN1MLDemo.java#L102)
+
+~~~
+    private void showSimpleList(){
+        SimpleList l = new SimpleList(newContext());
+        createForm("Simple List", l.getRoot()).show();
+    }
+~~~
+
+### Screenshots
+
+**Lumia Skin**
+![Lumia Screenshot](screenshots/List-lumia.png)
+
+**iOS Skin**
+![iOS Screenshot](screenshots/List-ios.png)
+
+
+
+
