@@ -1,0 +1,82 @@
+<!DOCTYPE cn1ml>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+  <head>
+    <script type="text/java">
+      import ca.weblite.scriblets.models.Board;
+      import ca.weblite.scriblets.models.Game;
+    </script>
+  </head>
+  <body layout="BorderLayout" attributes="Board board; Game game;">
+    <div name="statusBar" layout="BorderLayout" layout-constraint="NORTH">
+      <div name="scoreBoard" layout="X_AXIS" layout-constraint="EAST">
+        <div name="playerScoreContainer" uiid="PlayerScoreContainer">
+          <label name="playerScoreLabel">You &amp; Me</label>
+          <label name="playerScoreValue" data-class="scoreValue">-</label>
+        </div>
+        <div name="rivalScoreContainer" uiid="PlayerScoreContainer">
+          <label name="rivalScoreLabel">Opponent</label>
+          <label name="rivalScoreValue" data-class="scoreValue">-</label>
+        </div>
+        <img src="res:listHeader.png"/>
+        <button>
+            <img src="res:buttonImage.png"/>
+            Click Me
+        </button>
+
+      </div>
+    </div>
+    
+    <div name="gameFormLayeredLayout" layout="LayeredLayout" layout-constraint="CENTER">
+      <script type="text/java">
+        self.setScrollable(false);
+      </script>
+      <div name="gameFormBorderLayout" layout="BorderLayout">
+        <div name="rivalContainer" 
+             layout-constraint="NORTH" 
+             data-player="java:game.getPlayer(1)">
+               
+        </div>
+        <div name="boardContainer" 
+             layout-constraint="CENTER" 
+             layout="LayeredLayout">
+          <table name="boardBackground" 
+                 rows="board.getHeight()" 
+                 cols="board.getWidth()">
+            
+          </table>
+          <table name="boardCardsContainer" 
+                 rows="board.getHeight()" 
+                 cols="board.getWidth()">
+            
+          </table>
+        </div>
+        <div name="playerContainer" 
+             layout-constraint="SOUTH" 
+             data-player="java:game.getPlayer(0)">
+               
+        </div>
+        <div name="deckContainer" layout-constraint="EAST"></div>
+      </div>
+      <div name="gameFormUpperLayer"></div>
+      
+      <table name="theTable">
+          <tr>
+              <td>First Name</td><td><input type="text"/></td>
+          </tr>
+          <tr>
+              <td>Last Name</td><td><input type="text"/></td>
+          </tr>
+          <tr>
+              <td>Age</td><td><input type="text"/></td>
+          </tr>
+      </table>
+    </div>
+    
+    
+  </body>
+</html>
