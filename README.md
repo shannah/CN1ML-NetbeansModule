@@ -318,4 +318,4 @@ When, run in the simulator with the Lumia skin, this example looks like:
 
 ##Documentation
 
-* [CN1ML Tag and Attribute Reference](docs/references/Tags.md)
+* [CN1ML Tag and Attribute Reference](docs/reference/Tags.md)
