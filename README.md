@@ -43,3 +43,6 @@ I created this library because sometimes I want to express my UI structure using
 	
 6. Follow the prompts and restart the IDE when asked.
 
+##Usage
+
+1. 
