@@ -18,6 +18,7 @@ private Container buildUI() throws Exception {
 Container root = new Container();
 BoxLayout rootLayout = new BoxLayout(BoxLayout.Y_AXIS);
 root.setLayout(rootLayout);
+init1_root(root, null);
 Label node1 = new Label();
 node1.setUIID("Title");
 node1.setText("Contact Details");
@@ -30,7 +31,7 @@ node2.setLayout(node2Layout);
 Container node3 = new Container();
 FlowLayout node3Layout = new FlowLayout();
 node3.setLayout(node3Layout);
-init1_node3(node3, node2);
+init2_node3(node3, node2);
 node3.addComponent(new Label("First Name"));
 if (node2 != node3.getParent()){
 node2.addComponent(node3);
@@ -38,7 +39,7 @@ node2.addComponent(node3);
 Container node4 = new Container();
 FlowLayout node4Layout = new FlowLayout();
 node4.setLayout(node4Layout);
-init2_node4(node4, node2);
+init3_node4(node4, node2);
 TextField node5 = new TextField();
 node5.setName("firstName");
 _nameIndex.put("firstName", node5);
@@ -51,7 +52,7 @@ node2.addComponent(node4);
 Container node6 = new Container();
 FlowLayout node6Layout = new FlowLayout();
 node6.setLayout(node6Layout);
-init3_node6(node6, node2);
+init4_node6(node6, node2);
 node6.addComponent(new Label("Last Name"));
 if (node2 != node6.getParent()){
 node2.addComponent(node6);
@@ -59,7 +60,7 @@ node2.addComponent(node6);
 Container node7 = new Container();
 FlowLayout node7Layout = new FlowLayout();
 node7.setLayout(node7Layout);
-init4_node7(node7, node2);
+init5_node7(node7, node2);
 TextField node8 = new TextField();
 node8.setName("lastName");
 _nameIndex.put("lastName", node8);
@@ -72,7 +73,7 @@ node2.addComponent(node7);
 Container node9 = new Container();
 FlowLayout node9Layout = new FlowLayout();
 node9.setLayout(node9Layout);
-init5_node9(node9, node2);
+init6_node9(node9, node2);
 node9.addComponent(new Label("Home Country"));
 if (node2 != node9.getParent()){
 node2.addComponent(node9);
@@ -80,11 +81,11 @@ node2.addComponent(node9);
 Container node10 = new Container();
 FlowLayout node10Layout = new FlowLayout();
 node10.setLayout(node10Layout);
-init6_node10(node10, node2);
+init7_node10(node10, node2);
 ComboBox node11 = new ComboBox();
 node11.setName("countrySelect");
 _nameIndex.put("countrySelect", node11);
-init7_node11(node11, node10);
+init8_node11(node11, node10);
 if (node10 != node11.getParent()){
 node10.addComponent(node11);
 }
@@ -94,7 +95,7 @@ node2.addComponent(node10);
 Container node12 = new Container();
 FlowLayout node12Layout = new FlowLayout();
 node12.setLayout(node12Layout);
-init8_node12(node12, node2);
+init9_node12(node12, node2);
 node12.addComponent(new Label("Bio (Paragraph)"));
 if (node2 != node12.getParent()){
 node2.addComponent(node12);
@@ -102,12 +103,12 @@ node2.addComponent(node12);
 Container node13 = new Container();
 FlowLayout node13Layout = new FlowLayout();
 node13.setLayout(node13Layout);
-init9_node13(node13, node2);
+init10_node13(node13, node2);
 TextArea node14 = new TextArea();
 node14.setName("bio");
 _nameIndex.put("bio", node14);
-init10_node14(node14, node13);
 init11_node14(node14, node13);
+init12_node14(node14, node13);
 if (node13 != node14.getParent()){
 node13.addComponent(node14);
 }
@@ -129,7 +130,7 @@ node16.setLayout(node16Layout);
 Container node17 = new Container();
 FlowLayout node17Layout = new FlowLayout();
 node17.setLayout(node17Layout);
-init12_node17(node17, node16);
+init13_node17(node17, node16);
 node17.addComponent(new Label("Software"));
 if (node16 != node17.getParent()){
 node16.addComponent(node17);
@@ -137,7 +138,7 @@ node16.addComponent(node17);
 Container node18 = new Container();
 FlowLayout node18Layout = new FlowLayout();
 node18.setLayout(node18Layout);
-init13_node18(node18, node16);
+init14_node18(node18, node16);
 CheckBox node19 = new CheckBox();
 node19.setName("softwareCheckbox");
 _nameIndex.put("softwareCheckbox", node19);
@@ -150,7 +151,7 @@ node16.addComponent(node18);
 Container node20 = new Container();
 FlowLayout node20Layout = new FlowLayout();
 node20.setLayout(node20Layout);
-init14_node20(node20, node16);
+init15_node20(node20, node16);
 node20.addComponent(new Label("Hardware"));
 if (node16 != node20.getParent()){
 node16.addComponent(node20);
@@ -158,7 +159,7 @@ node16.addComponent(node20);
 Container node21 = new Container();
 FlowLayout node21Layout = new FlowLayout();
 node21.setLayout(node21Layout);
-init15_node21(node21, node16);
+init16_node21(node21, node16);
 CheckBox node22 = new CheckBox();
 node22.setName("hardwareCheckbox");
 _nameIndex.put("hardwareCheckbox", node22);
@@ -180,34 +181,39 @@ root.addComponent(node23);
 }
 return root;
 }
-private void init1_node3(Container self, Container parent){
+private void init1_root(Container self, Container parent){
+
+            self.setScrollableY(true);
+        
+}
+private void init2_node3(Container self, Container parent){
 TableLayout l = (TableLayout)parent.getLayout(); TableLayout.Constraint c = l.createConstraint(0,0); c.setVerticalSpan(1); c.setHorizontalSpan(1); parent.addComponent(c, self);
 }
-private void init2_node4(Container self, Container parent){
+private void init3_node4(Container self, Container parent){
 TableLayout l = (TableLayout)parent.getLayout(); TableLayout.Constraint c = l.createConstraint(0,1); c.setVerticalSpan(1); c.setHorizontalSpan(1); parent.addComponent(c, self);
 }
 public TextField getFirstName(){
       return (TextField)get("firstName");
       }
-private void init3_node6(Container self, Container parent){
+private void init4_node6(Container self, Container parent){
 TableLayout l = (TableLayout)parent.getLayout(); TableLayout.Constraint c = l.createConstraint(1,0); c.setVerticalSpan(1); c.setHorizontalSpan(1); parent.addComponent(c, self);
 }
-private void init4_node7(Container self, Container parent){
+private void init5_node7(Container self, Container parent){
 TableLayout l = (TableLayout)parent.getLayout(); TableLayout.Constraint c = l.createConstraint(1,1); c.setVerticalSpan(1); c.setHorizontalSpan(1); parent.addComponent(c, self);
 }
 public TextField getLastName(){
       return (TextField)get("lastName");
       }
-private void init5_node9(Container self, Container parent){
+private void init6_node9(Container self, Container parent){
 TableLayout l = (TableLayout)parent.getLayout(); TableLayout.Constraint c = l.createConstraint(2,0); c.setVerticalSpan(1); c.setHorizontalSpan(1); parent.addComponent(c, self);
 }
-private void init6_node10(Container self, Container parent){
+private void init7_node10(Container self, Container parent){
 TableLayout l = (TableLayout)parent.getLayout(); TableLayout.Constraint c = l.createConstraint(2,1); c.setVerticalSpan(1); c.setHorizontalSpan(1); parent.addComponent(c, self);
 }
 public ComboBox getCountrySelect(){
       return (ComboBox)get("countrySelect");
       }
-private void init7_node11(ComboBox self, Container parent){
+private void init8_node11(ComboBox self, Container parent){
 java.util.ArrayList opts = new java.util.ArrayList();
 opts.add("Canada");
 opts.add("United States");
@@ -216,36 +222,36 @@ opts.add("Spain");
 self.setModel(new com.codename1.ui.list.DefaultListModel(opts));
 
 }
-private void init8_node12(Container self, Container parent){
+private void init9_node12(Container self, Container parent){
 TableLayout l = (TableLayout)parent.getLayout(); TableLayout.Constraint c = l.createConstraint(3,0); c.setVerticalSpan(1); c.setHorizontalSpan(2); parent.addComponent(c, self);
 }
-private void init9_node13(Container self, Container parent){
+private void init10_node13(Container self, Container parent){
 TableLayout l = (TableLayout)parent.getLayout(); TableLayout.Constraint c = l.createConstraint(4,0); c.setVerticalSpan(1); c.setHorizontalSpan(2); parent.addComponent(c, self);
 }
 public TextArea getBio(){
       return (TextArea)get("bio");
       }
-private void init10_node14(TextArea self, Container parent){
+private void init11_node14(TextArea self, Container parent){
 self.setRows(5);
 
 }
-private void init11_node14(TextArea self, Container parent){
+private void init12_node14(TextArea self, Container parent){
 self.setColumns(30);
 
 }
-private void init12_node17(Container self, Container parent){
+private void init13_node17(Container self, Container parent){
 TableLayout l = (TableLayout)parent.getLayout(); TableLayout.Constraint c = l.createConstraint(0,0); c.setVerticalSpan(1); c.setHorizontalSpan(1); parent.addComponent(c, self);
 }
-private void init13_node18(Container self, Container parent){
+private void init14_node18(Container self, Container parent){
 TableLayout l = (TableLayout)parent.getLayout(); TableLayout.Constraint c = l.createConstraint(0,1); c.setVerticalSpan(1); c.setHorizontalSpan(1); parent.addComponent(c, self);
 }
 public CheckBox getSoftwareCheckbox(){
       return (CheckBox)get("softwareCheckbox");
       }
-private void init14_node20(Container self, Container parent){
+private void init15_node20(Container self, Container parent){
 TableLayout l = (TableLayout)parent.getLayout(); TableLayout.Constraint c = l.createConstraint(0,2); c.setVerticalSpan(1); c.setHorizontalSpan(1); parent.addComponent(c, self);
 }
-private void init15_node21(Container self, Container parent){
+private void init16_node21(Container self, Container parent){
 TableLayout l = (TableLayout)parent.getLayout(); TableLayout.Constraint c = l.createConstraint(0,3); c.setVerticalSpan(1); c.setHorizontalSpan(1); parent.addComponent(c, self);
 }
 public CheckBox getHardwareCheckbox(){

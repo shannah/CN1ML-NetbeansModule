@@ -1,6 +1,9 @@
 <html>
     <head></head>
     <body layout="y">
+        <script>
+            self.setScrollableY(true);
+        </script>
         <label uiid="Title">Contact Details</label>
         <table>
             <tr>
