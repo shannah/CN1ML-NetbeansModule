@@ -26,20 +26,20 @@ I created this library because sometimes I want to express my UI structure using
 
 1. Download the [CN1ML Netbeans Module](https://s3.amazonaws.com/download.weblite.ca/cn1ml-nbm/ca-weblite-codename1-netbeans-cn1ml.nbm)
 2. Open Netbeans, and select "Tools" > "Plugins"
-
-![Tools menu](screenshots/tools-menu.png)
-
+	
+	![Tools menu](screenshots/tools-menu.png)
+	
 3. In the "Plugins" dialog, select the "Downloaded" tab, and click the "Add Plugins..." button.
 
-![Plugins dialog](screenshots/plugins-dialog.png)
+	![Plugins dialog](screenshots/plugins-dialog.png)
 
 4. In the file chooser, navigate to and select the "ca-weblite-codename1-netbeans-cn1ml.nbm" file that you downloaded in step one.
 
-![File Chooser](screenshots/file-chooser.png)
+	![File Chooser](screenshots/file-chooser.png)
 
 5. Make sure the CN1ML NBM module is listed in the "Plugins" dialog and that its checkbox is checked.  Then click the "Install" button.
-
-![Install form](screenshots/install-form.png)
-
+	
+	![Install form](screenshots/install-form.png)
+	
 6. Follow the prompts and restart the IDE when asked.
 
