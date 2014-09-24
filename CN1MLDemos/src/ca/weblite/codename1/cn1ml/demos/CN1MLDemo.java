@@ -126,6 +126,26 @@ public class CN1MLDemo {
         createForm("Web Browser", m.getRoot()).show();
     }
     
+    private void showMyNewForm(){
+        
+        // Instantiate the MyNewForm class.
+        // Takes a Map in the constructor as a means of passing data to the
+        // template.
+        MyNewForm f = new MyNewForm(new HashMap());
+        
+        // Create a new form to show our template
+        Form form = new Form("My New Form");
+        form.setLayout(new BorderLayout());
+        
+        // Add the MyNewForm to the form.
+        // Use the getRoot() method to get the root container 
+        // corresponding to the <body> tag.
+        form.addComponent(BorderLayout.CENTER, f.getRoot());
+        
+        // Show the form
+        form.show();
+    }
+    
     public void stop() {
         current = Display.getInstance().getCurrent();
     }
