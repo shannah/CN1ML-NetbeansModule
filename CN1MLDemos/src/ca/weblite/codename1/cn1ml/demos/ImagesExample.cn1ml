@@ -1,0 +1,14 @@
+<!doctype cn1ml>
+<html>
+    <body layout="GridLayout(3,3)">
+        <img src="res:bills.gif"/>
+        <img src="res:bengals.gif"/>
+        <img src="res:browns.gif"/>
+        <img src="res:cardinals.gif"/>
+        <img src="res:cowboys.gif"/>
+        <img src="res:falcons.gif"/>
+        <img src="res:panthers.gif"/>
+        <img src="res:ravens.gif"/>
+        <img src="res:bears.gif"/>
+    </body>
+</html>

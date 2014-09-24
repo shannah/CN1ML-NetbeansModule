@@ -73,6 +73,7 @@ public class CN1MLDemo {
             "Map",
             "Web Browser",
             "Default Sample Template",
+            "Images Example"
         });
         final MainMenu m = new MainMenu(context);
         m.getMenuList().addActionListener(new ActionListener(){
@@ -89,6 +90,8 @@ public class CN1MLDemo {
                     showWebBrowser();
                 } else if ("Default Sample Template".equals(sel)){
                     showMyNewForm();
+                } else if ("Images Example".equals(sel)){
+                    showImagesExample();
                 }
             }
             
@@ -127,6 +130,11 @@ public class CN1MLDemo {
     private void showWebBrowser(){
         WebBrowser m = new WebBrowser(newContext());
         createForm("Web Browser", m.getRoot()).show();
+    }
+    
+    private void showImagesExample(){
+        ImagesExample e = new ImagesExample(newContext());
+        createForm("Images Grid", e.getRoot()).show();
     }
     
     private void showMyNewForm(){
