@@ -5,7 +5,7 @@
 1. [Overview](#overview)
 2. [HTML Tags](#html-tags)
 3. [Layouts](#layouts)
-4. [Template Attributes and Parameters](#template-attributes-parameters)
+4. [Template Attributes and Parameters](#attributes)
 5. [Client Properties](#putting-client-properties)
 6. [Custom Initialization: Script tags](#script-tags)
 7. [Imports](#imports)
@@ -110,6 +110,8 @@ If you have a custom constraint, you can specify that using a java expression:
 ~~~
 
 <hr>
+
+<a name="attributes"></a>
 
 ## Template Attributes/Parameters
 
