@@ -12,6 +12,7 @@
 	1. [Creating a New Template](#creating-a-new-template)
 	2. [Using The Template From Java](#using-the-template-from-java)
 6. [Samples](#more-samples)
+7. [Documentation](#documentation)
 
 ##Synopsis
 
@@ -314,3 +315,7 @@ When, run in the simulator with the Lumia skin, this example looks like:
 4. [An embedded Web Browser](docs/samples/WebBrowser.md)
 5. [A Main Menu](docs/samples/MainMenu.md)
 6. [Images Example](docs/samples/ImagesExample.md)
+
+##Documentation
+
+* [CN1ML Tag and Attribute Reference](docs/references/Tags.md)
