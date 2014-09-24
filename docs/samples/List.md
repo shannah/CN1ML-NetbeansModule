@@ -1,6 +1,6 @@
 ## CN1ML Sample: A Simple List
 
-[Return to Samples](../../README.md#samples)
+[Return to Samples](../../README.md#more-samples)
 
 This sample is part of the [CN1MLDemos](../../CN1MLDemos) project.  It demonstrates how to create a simple list using a `<select>` tag.  Notice that the `<select>` tag includes the `size` attribute. Without it, the list would have been rendered as a Combo Box.
 
