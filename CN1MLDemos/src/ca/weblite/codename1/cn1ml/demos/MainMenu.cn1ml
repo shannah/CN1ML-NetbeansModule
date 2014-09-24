@@ -1,0 +1,5 @@
+<html>
+    <body layout="BorderLayout" attributes="String[] menuItems;">
+        <select name="menuList" size="5" data="menuItems" layout-constraint="c"></select>
+    </body>
+</html>

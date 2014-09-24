@@ -1,0 +1,48 @@
+<html>
+    <head></head>
+    <body layout="y">
+        <label uiid="Title">Contact Details</label>
+        <table>
+            <tr>
+                <td>First Name</td>
+                <td><input type="text" name="firstName"/></td>
+            </tr>
+            <tr>
+                <td>Last Name</td>
+                <td><input type="text" name="lastName"/></td>
+            </tr>
+            <tr>
+                <td>Home Country</td>
+                <td>
+                    <select name="countrySelect">
+                        <option>Canada</option>
+                        <option>United States</option>
+                        <option>France</option>
+                        <option>Spain</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">Bio (Paragraph)</td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <textarea name="bio" rows="5" cols="30"></textarea>
+                </td>
+            </tr>
+        </table>
+        <label uiid="Title">Preferences</label>
+        <table>
+            <tr>
+                <td>Software</td>
+                <td><input type="checkbox" name="softwareCheckbox"/></td>
+            
+                <td>Hardware</td>
+                <td><input type="checkbox" name="hardwareCheckbox"/></td>
+            </tr>
+            
+        </table>
+        <button name="saveButton">Save</button>
+        
+    </body>
+</html>

@@ -1,0 +1,10 @@
+<html>
+    <head></head>
+    <body layout="BorderLayout">
+        <select name="bookList" size="5" layout-constraint="c">
+            <option>The Count of Monte Cristo</option>
+            <option>Tale of Two Cities</option>
+            <option>The Incredible Hulk</option>
+        </select>
+    </body>
+</html>

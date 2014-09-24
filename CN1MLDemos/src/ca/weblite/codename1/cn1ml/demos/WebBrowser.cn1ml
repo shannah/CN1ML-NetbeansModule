@@ -1,0 +1,44 @@
+<html>
+    <head>
+        <script>
+            import com.codename1.ui.events.*;
+        </script>
+    </head>
+    <body layout="BorderLayout">
+        <div layout-constraint="n">
+            <button name="google">Google
+                <script>
+                    self.addActionListener(new ActionListener(){
+                        public void actionPerformed(ActionEvent e){
+                            getBrowser().setURL("http://google.com");
+                        }
+                    });
+                </script>
+            </button>
+            <button name="cn1">CN1 Home
+                <script>
+                    self.addActionListener(new ActionListener(){
+                        public void actionPerformed(ActionEvent e){
+                            getBrowser().setURL("http://codenameone.com");
+                        }
+                    });
+                </script>
+            
+            </button>
+            <button name="cn1ml">CN1ML Home
+                <script>
+                    self.addActionListener(new ActionListener(){
+                        public void actionPerformed(ActionEvent e){
+                            getBrowser().setURL("https://github.com/shannah/CN1ML-NetbeansModule");
+                        }
+                    });
+                </script>
+            </button>
+        </div>
+        <div class="com.codename1.components.WebBrowser" name="browser" layout-constraint="c">
+            <script>
+                self.setURL("http://www.codenameone.com/");
+            </script>
+        </div>
+    </body>
+</html>
