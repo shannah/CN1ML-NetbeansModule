@@ -1,6 +1,10 @@
 #CN1ML NetBeans Module
 
+
 ##Codename One Templates using HTML
+<img src="screenshots/post-header.png" alt="post-header" width="560" height="297" class="aligncenter size-full wp-image-352" />
+
+
 
 ##Contents
 
@@ -23,6 +27,11 @@ Conversion is done at compile time, so that:
 
 1. You don't incur any performance penalty for using a template and
 2. The build server can still strip dead code from your application at build time (i.e. the all dependencies will be converted to Java code which allows for static code analysis).
+
+##Screencast
+
+Check out this [screencast](https://www.youtube.com/watch?v=GY9bOTY4WYU) for a quick introduction and demonstration.
+
 
 ##Motivation
 
