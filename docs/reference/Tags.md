@@ -74,7 +74,7 @@ Some common layouts have short-cuts:
 
 ###Layout Constraints
 
-Some layout managers require a constraint when adding child components.  E.g. When adding a component to a Container that uses GridLayout, you need to specify one of `BorderLayout.NORTH`, `BorderLayout.SOUTH`, `BorderLayout.CENTER`, etc... as the first parameter of `addComponent()` so that it knows where to place the component.
+Some layout managers require a constraint when adding child components.  E.g. When adding a component to a Container that uses BorderLayout, you need to specify one of `BorderLayout.NORTH`, `BorderLayout.SOUTH`, `BorderLayout.CENTER`, etc... as the first parameter of `addComponent()` so that it knows where to place the component.
 
 Use the `layout-constraint` attribute on the child tag to specify this constraint.
 
