@@ -22,6 +22,7 @@ public class CN1MLDemo {
         try {
             theme = Resources.openLayered("/theme");
             UIManager.getInstance().setThemeProps(theme.getTheme(theme.getThemeResourceNames()[0]));
+            
         } catch(IOException e){
             e.printStackTrace();
         }
@@ -70,6 +71,7 @@ public class CN1MLDemo {
         context.put("menuItems", new String[]{
             "Simple List",
             "Contact Form",
+            "Contact Form i18n",
             "Map",
             "Web Browser",
             "Default Sample Template",
@@ -86,6 +88,8 @@ public class CN1MLDemo {
                     showSimpleList();
                 } else if ( "Contact Form".equals(sel)){
                     showContactForm();
+                } else if ( "Contact Form i18n".equals(sel)){
+                    showContactFormI18n();
                 } else if ("Map".equals(sel)){
                     showMap();
                 } else if ("Web Browser".equals(sel)){
@@ -126,6 +130,12 @@ public class CN1MLDemo {
     private void showContactForm(){
         ContactForm f = new ContactForm(newContext());
         createForm("Contact Form", f.getRoot()).show();
+    }
+    
+    private void showContactFormI18n(){
+        ContactFormI18n f = new ContactFormI18n(newContext());
+        UIManager.getInstance().setBundle(theme.getL10N("ContactFormI18n", "fr"));
+        createForm("Contact Form i18n", f.getRoot()).show();
     }
     
     private void showMap(){

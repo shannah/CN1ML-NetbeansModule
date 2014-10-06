@@ -69,7 +69,16 @@ class CN1ML
     buildClass ByteArrayInputStream.new html.getBytes(StandardCharsets.UTF_8)
   end
   
+  # DOM PREPROCESSING METHODS ##################################################
+  # --------------------------
+  # These methods are called prior to the conversion to transform the DOM into
+  # A normalized form that the parser can handle more easily.  This is helpful
+  # for "special" tags like <table>, and <textarea> where the nested elements
+  # won't correspond to nested elements in the CN1 component model.
+  
+  
   def preprocessDom(doc:Document):void
+    preprocessI18n doc.body
     preprocessElement doc.body
   end
   
@@ -81,8 +90,8 @@ class CN1ML
       scriptContent = StringBuilder.new
       next if child.attr('title').length == 0
       title = child.attr 'title'
-      title = if title.startsWith 'java:'
-        title.substring title.indexOf ':'+1
+      title = if title.indexOf('java:')==0
+        title.substring(title.indexOf(':')+1)
       else
         "\"#{escape(title)}\""
       end
@@ -289,7 +298,14 @@ class CN1ML
       foundChild=false
       findChildren('option', el).each do |opt|
           foundChild=true
-          scriptContent << "opts.add(\"#{escapeHtml opt.text}\");\n"
+          tx = opt.text
+          if opt.attr('i18n').length > 0
+            tx = i18n "\"#{escape opt.attr 'i18n'}\"",
+              "\"#{escapeHtml tx}\""
+          else
+            tx = "\"#{escapeHtml tx}\""
+          end
+          scriptContent << "opts.add(#{tx});\n"
       end
       if foundChild
         scriptContent << "self.setModel(new com.codename1.ui.list.DefaultListModel(opts));\n"
@@ -337,6 +353,14 @@ class CN1ML
     
     
   end
+  
+  
+  def preprocessI18n(el:Element):void
+    i18n el
+    el.children.each {|child| preprocessI18n child}
+  end
+  
+  # END PREPROCESSING ##########################################################
   
   def findOne(tagName:String, root:Element):Element
     return root if tagName.equals root.tagName
@@ -657,10 +681,16 @@ class CN1ML
     else
       if childNode.kind_of? TextNode
         tx = escape TextNode(childNode).text
+        if el.attr('i18n').length > 0
+          tx = i18n "\"#{escape el.attr 'i18n'}\"", 
+            self.quoteClientPropertyValue(tx)
+        else
+          tx = "\"#{escape tx}\""
+        end
         if ['Label','Button'].contains className and tx.trim.length>0
-          output << "#{varName}.setText(\"#{tx}\");\n"
+          output << "#{varName}.setText(#{tx});\n"
         elsif tx and tx.trim.length>0
-          output << "#{varName}.addComponent(new Label(\"#{tx}\"));\n"
+          output << "#{varName}.addComponent(new Label(#{tx}));\n"
         end
       end
     end 
@@ -703,6 +733,38 @@ class CN1ML
     else
       "\"#{val}\""
     end
+  end
+  
+  /**
+   * Localizes all attributes of an HTML tag based on the values of corresponding
+   * i18n:xxx attributes.
+   */
+  def i18n(el:Element):void
+    newAtts = {}
+    el.attributes.each do |att|
+      if att.getKey.startsWith 'i18n:'
+        attName = att.getKey.substring att.getKey.indexOf(':')+1
+        defaultValue = quoteClientPropertyValue el.attr attName
+        newAtts[attName] = i18n("\"#{escape att.getValue}\"", defaultValue)
+      end
+    end
+    newAtts.entrySet.each do |e|
+      el.attr "#{e.getKey}", "java:#{e.getValue}"
+    end
+    
+    
+  end
+  
+  /**
+   * Returns Java code to localize a key with the provided default value.
+   * @param key The key to localize.  If this is a raw string, it should include
+   * the quotes.
+   * @param defaultValue The default value.  If this is a raw string, it should
+   * include the quotes.
+   * @returns Java code to localize the string.
+   */
+  def i18n(key:String, defaultValue:String):String
+    "com.codename1.ui.plaf.UIManager.getInstance().localize(#{key}, #{defaultValue})"
   end
   
   def getElementUIClass(el:Element):String

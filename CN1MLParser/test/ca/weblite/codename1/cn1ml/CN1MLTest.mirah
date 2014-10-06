@@ -102,5 +102,13 @@ class CN1MLTest
     puts classText
   end
   
+  $Test
+  def testI18n:void
+    html = "<tabs><div title='Tab 1' i18n:title='tab1'></div></tabs>"
+    writer = CN1ML.new 'pkg.MyClass'
+    classText = writer.buildClass html
+    puts classText
+  end
+  
 end
 

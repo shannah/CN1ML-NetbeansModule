@@ -6,6 +6,38 @@
     <image name="bills.gif" type="multi"  />
     <image name="browns.gif" type="multi"  />
     <image name="cardinals.gif" type="multi"  />
+    <l10n name="ContactFormI18n">
+        <lang name="fr">
+            <entry key="first name" value="Pr&#xe9;nom" />
+            <entry key="France" value="France" />
+            <entry key="hardware" value="Mat&#xe9;riel" />
+            <entry key="Canada" value="Canada" />
+            <entry key="Spain" value="Espagne" />
+            <entry key="bio label" value="Bio (paragraphe)" />
+            <entry key="preferences" value="Pr&#xe9;f&#xe9;rences" />
+            <entry key="last name" value="Nom de famille" />
+            <entry key="United States" value="&#xc9;tats-Unis" />
+            <entry key="save" value="Enregistrer" />
+            <entry key="contact details" value="Coordonn&#xe9;es" />
+            <entry key="software" value="Logiciel" />
+            <entry key="home country" value="Pays d'origine" />
+        </lang>
+        <lang name="en">
+            <entry key="first name" value="First Name" />
+            <entry key="France" value="France" />
+            <entry key="hardware" value="Hardware" />
+            <entry key="Spain" value="Spain" />
+            <entry key="Canada" value="Canada" />
+            <entry key="bio label" value="Bio (paragraph)" />
+            <entry key="preferences" value="Preferences" />
+            <entry key="last name" value="Last Name" />
+            <entry key="United States" value="United States" />
+            <entry key="save" value="Save" />
+            <entry key="contact details" value="Contact Details" />
+            <entry key="software" value="Software" />
+            <entry key="home country" value="Home Country" />
+        </lang>
+    </l10n>
     <image name="cowboys.gif" type="multi"  />
     <image name="falcons.gif" type="multi"  />
     <image name="panthers.gif" type="multi"  />
