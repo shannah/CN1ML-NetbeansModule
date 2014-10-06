@@ -16,6 +16,7 @@
 12. [Lists](#lists)
 13. [Tabs](#tabs)
 14. [Scripts](#scripts)
+15. [Localization](#localization)
 
 ##Overview
 
@@ -450,3 +451,27 @@ E.g.  Setting the tab placement to "top" using a script tag.  Eventually I'd lik
   </div>
 </tabs>
 ~~~
+
+<hr>
+
+##Localization
+
+CN1ML templates support localization via the `i18n` and `i18n:xxx` HTML attributes.  To localize the text content of an element, use the `i18n` attribute.  E.g.
+
+~~~
+<label i18n="welcome">Welcome</label>
+~~~
+
+To localize an attribute, you can should use the `i18n:xxx` attribute, where `xxx` is the attribute name that you wish to localize.  E.g.
+
+~~~
+<tabs>
+   <div title="Tab 1" i18n:title="tab1"> ...</div>
+</tabs>
+~~~
+
+See also [Localization Example](../samples/Localization.md).
+
+For a brief introduction to localization in Codename One see this [How to video](http://www.codenameone.com/how-do-i---localizetranslate-my-application-apply-i18nl10n-internationalizationlocalization-to-my-app.html).
+
+

@@ -326,6 +326,7 @@ When, run in the simulator with the Lumia skin, this example looks like:
 5. [A Main Menu](docs/samples/MainMenu.md)
 6. [Images Example](docs/samples/ImagesExample.md)
 7. [Tabs Example](docs/samples/Tabs.md)
+8. [Localization Example](docs/samples/Localization.md)
 
 ##Documentation
 
