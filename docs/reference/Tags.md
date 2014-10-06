@@ -14,6 +14,7 @@
 10. [Images](#images)
 11. [Text](#text)
 12. [Lists](#lists)
+13. [Tabs](#tabs)
 
 ##Overview
 
@@ -39,6 +40,7 @@ This document outlines the rules that are used by the CN1ML parser for convertin
 | `<select size="5">` | `com.codename1.ui.List`|
 | `<img>` | `com.codename1.ui.Label`|
 | `<table>` | `com.codename1.ui.Container`|
+| `<tabs>` | `com.codename1.ui.Tabs`|
 | `<div>` | `com.codename1.ui.Container`|
 | `<script>` |Converted to Java code block |
 | `<body>` | `com.codename1.ui.Container` -- this is the root|
@@ -395,3 +397,30 @@ E.g.
 ~~~
 
 Both of these examples require that you pass the data to the template as an attribute.
+
+<hr>
+
+##Tabs
+
+You can add a `Tabs` component to your form in two ways:
+
+1. Using the `<tabs>` element.
+2. Setting the `class` attribute of a any element to "Tabs".
+
+Child elements of the `Tabs` component are then added as individual tabs.  E.g.
+
+~~~
+<tabs>
+  <div title="Tab 1">
+    Hello World
+  </div>
+  <div title="Tab 2" icon="res:customIcon.png">
+  	Good bye World
+  </div>
+</tabs>
+~~~
+
+Notice that child elements must include the `title` attribute, as it will be used as the tab label.  They may optionally include an `icon` attribute as well to specify the icon that should be used for the tab.  The syntax for the `icon` attribute value is the same as for the `src` attribute of the [`img` tag](#images).
+
+See also [Tabs Example](../samples/Tabs.md)
+
