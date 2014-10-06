@@ -438,7 +438,7 @@ class ContactFormI18n {
 
 From [CN1MLDemo.java](../../CN1MLDemos/src/ca/weblite/codename1/cn1ml/demos/CN1MLDemo.java)
 
-In this sample we use the theme.getL10N method to explicitly set the language to "French", but for a production app, you should just let Codename One handle the locale settings using the device settings.
+In this sample we use the Resources.getL10N method to explicitly set the language to "French", but for a production app, you should just let Codename One handle the locale settings using the device settings.
 
 ~~~
     private void showContactFormI18n(){
