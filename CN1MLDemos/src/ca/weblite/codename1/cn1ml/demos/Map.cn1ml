@@ -1,5 +1,8 @@
 <html>
     <body class="com.codename1.maps.MapComponent">
-        
+        <script>
+            self.zoomIn();
+            self.zoomIn();
+        </script>
     </body>
 </html>

@@ -73,7 +73,9 @@ public class CN1MLDemo {
             "Map",
             "Web Browser",
             "Default Sample Template",
-            "Images Example"
+            "Images Example",
+            "My Old Form",
+            "Tabs Demo"
         });
         final MainMenu m = new MainMenu(context);
         m.getMenuList().addActionListener(new ActionListener(){
@@ -92,6 +94,10 @@ public class CN1MLDemo {
                     showMyNewForm();
                 } else if ("Images Example".equals(sel)){
                     showImagesExample();
+                } else if ( "My Old Form".equals(sel)){
+                    showMyOldForm();
+                } else if ("Tabs Demo".equals(sel)){
+                    showTabsDemo();
                 }
             }
             
@@ -135,6 +141,17 @@ public class CN1MLDemo {
     private void showImagesExample(){
         ImagesExample e = new ImagesExample(newContext());
         createForm("Images Grid", e.getRoot()).show();
+    }
+    
+    private void showMyOldForm(){
+        MyOldForm f = new MyOldForm(newContext());
+        
+        createForm("Old Form", f.getRoot()).show();
+    }
+    
+    private void showTabsDemo(){
+        TabsDemo f = new TabsDemo(newContext());
+        createForm("Tabs Demo", f.getRoot()).show();
     }
     
     private void showMyNewForm(){

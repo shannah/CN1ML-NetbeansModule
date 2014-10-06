@@ -4,25 +4,35 @@ import com.codename1.ui.*;
 import com.codename1.ui.layouts.*;
 import com.codename1.ui.table.*;
 import com.codename1.ui.util.*;
-class Map {
+class MyOldForm {
 private Container rootContainer;
 private Resources resources;
 public Container getRoot(){ if (rootContainer==null){ 
         try {rootContainer=buildUI();} catch (Exception ex){ex.printStackTrace();throw new RuntimeException(ex.getMessage());}} return rootContainer;}
 private java.util.Map<String,Component> _nameIndex=new java.util.HashMap<String,Component>();
 public Component get(String name){ getRoot(); return _nameIndex.get(name);}
-public Map(java.util.Map context){
+public MyOldForm(java.util.Map context){
 for (Object o : context.values()){ if (o instanceof Resources) resources=(Resources)o;}
 }
 private Container buildUI() throws Exception {
-com.codename1.maps.MapComponent root = new com.codename1.maps.MapComponent();
-init1_root(root, null);
-return root;
+Container root = new Container();
+BoxLayout rootLayout = new BoxLayout(BoxLayout.Y_AXIS);
+root.setLayout(rootLayout);
+Label node1 = new Label();
+node1.setUIID("Title");
+node1.setText("Hello World");
+if (root != node1.getParent()){
+root.addComponent(node1);
 }
-private void init1_root(com.codename1.maps.MapComponent self, Container parent){
-
-            self.zoomIn();
-            self.zoomIn();
-        
+Button node2 = new Button();
+node2.setText("Click Me");
+if (root != node2.getParent()){
+root.addComponent(node2);
+}
+TextField node3 = new TextField();
+if (root != node3.getParent()){
+root.addComponent(node3);
+}
+return root;
 }
 }

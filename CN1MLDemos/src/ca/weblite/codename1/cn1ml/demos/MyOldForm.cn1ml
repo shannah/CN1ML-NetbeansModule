@@ -1,0 +1,9 @@
+<!doctype cn1ml>
+<html>
+    
+    <body layout="y">
+        <label uiid="Title">Hello World</label>
+        <button>Click Me</button>
+        <input type="text"/>
+    </body>
+</html>

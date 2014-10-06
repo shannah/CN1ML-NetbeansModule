@@ -1,0 +1,30 @@
+<!doctype cn1ml>
+<html>
+    <head>
+    </head>
+    <body class="Tabs">
+        <div title="Tab 1">
+            Hello
+        </div>
+        <div title="Tab 2">
+            World
+        </div>
+        <div title="Map" class="com.codename1.maps.MapComponent">
+            <script>
+                self.zoomIn();
+                self.zoomIn();
+            </script>
+        </div>
+        <div title="Bills" icon="res:bills.gif">
+            This is the Bills Page
+        </div>
+        <tabs title="Sub Tabs">
+            <div title="Subtab 1">
+                In subtab 1
+            </div>
+            <div title="subtag 2">
+                In Subtab 2
+            </div>
+        </tabs>
+    </body>
+</html>
