@@ -15,6 +15,7 @@
 11. [Text](#text)
 12. [Lists](#lists)
 13. [Tabs](#tabs)
+14. [Scripts](#scripts)
 
 ##Overview
 
@@ -424,3 +425,28 @@ Notice that child elements must include the `title` attribute, as it will be use
 
 See also [Tabs Example](../samples/Tabs.md)
 
+<hr>
+
+##Scripts
+
+`<script>` tags are very useful for adding custom Java code to initialize or decorate your UI inline.  There are three "special" variables that can be used inside of a script:
+
+1. `self` - Refers to the parent element of the script.
+2. `parent` - Refers to the grandparent element of the script (i.e. the parent of `self`).
+3. `this` - Refers to the CN1ML template instance.
+
+E.g.  Setting the tab placement to "top" using a script tag.  Eventually I'd like to add support for most options like this directly in HTML attributes, but in cases where you need to customize a component, you can always use a script tag.
+
+~~~
+<tabs>
+  <script>
+    self.setTabPlacement(Component.TOP);
+  </script>
+  <div title="Tab 1">
+  	Hello World
+  </div>
+  <div title="Tab 2">
+    Tab 2 Content
+  </div>
+</tabs>
+~~~
