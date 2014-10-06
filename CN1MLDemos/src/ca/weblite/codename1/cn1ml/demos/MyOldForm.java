@@ -18,21 +18,26 @@ private Container buildUI() throws Exception {
 Container root = new Container();
 BoxLayout rootLayout = new BoxLayout(BoxLayout.Y_AXIS);
 root.setLayout(rootLayout);
+root.addComponent(new Label(" "));
 Label node1 = new Label();
 node1.setUIID("Title");
 node1.setText("Hello World");
-if (root != node1.getParent()){
+if (node1.getClientProperty("__CN1ML_NO_ADD__") == null && root != node1.getParent()){
 root.addComponent(node1);
 }
+root.addComponent(new Label(" "));
 Button node2 = new Button();
 node2.setText("Click Me");
-if (root != node2.getParent()){
+if (node2.getClientProperty("__CN1ML_NO_ADD__") == null && root != node2.getParent()){
 root.addComponent(node2);
 }
+root.addComponent(new Label(" "));
 TextField node3 = new TextField();
-if (root != node3.getParent()){
+if (node3.getClientProperty("__CN1ML_NO_ADD__") == null && root != node3.getParent()){
 root.addComponent(node3);
 }
+root.addComponent(new Label(" "));
+root.addComponent(new Label(" "));
 return root;
 }
 }

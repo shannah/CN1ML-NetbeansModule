@@ -16,13 +16,17 @@ for (Object o : context.values()){ if (o instanceof Resources) resources=(Resour
 }
 private Container buildUI() throws Exception {
 com.codename1.maps.MapComponent root = new com.codename1.maps.MapComponent();
+root.addComponent(new Label(" "));
 init1_root(root, null);
+root.addComponent(new Label(" "));
+root.addComponent(new Label(" "));
 return root;
 }
 private void init1_root(com.codename1.maps.MapComponent self, Container parent){
 
             self.zoomIn();
             self.zoomIn();
+            
         
 }
 }
