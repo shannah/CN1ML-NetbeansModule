@@ -3,7 +3,6 @@
         <script>
             self.zoomIn();
             self.zoomIn();
-            
         </script>
     </body>
 </html>

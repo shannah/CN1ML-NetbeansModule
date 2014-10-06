@@ -684,8 +684,10 @@ class CN1ML
         if el.attr('i18n').length > 0
           tx = i18n "\"#{escape el.attr 'i18n'}\"", 
             self.quoteClientPropertyValue(tx)
-        else
+        elsif tx.trim.length>0
           tx = "\"#{escape tx}\""
+        else
+          tx = ""
         end
         if ['Label','Button'].contains className and tx.trim.length>0
           output << "#{varName}.setText(#{tx});\n"

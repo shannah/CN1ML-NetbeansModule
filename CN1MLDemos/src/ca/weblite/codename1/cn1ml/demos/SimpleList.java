@@ -45,7 +45,7 @@ class SimpleList {
         node1.setName("bookList");
         _nameIndex.put("bookList", node1);
         init1_node1(node1, root);
-        if (root != node1.getParent()) {
+        if (node1.getClientProperty("__CN1ML_NO_ADD__") == null && root != node1.getParent()) {
             root.addComponent(BorderLayout.CENTER, node1);
         }
         return root;

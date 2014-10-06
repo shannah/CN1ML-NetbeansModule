@@ -41,16 +41,13 @@ class ContactFormI18n {
         Container root = new Container();
         BoxLayout rootLayout = new BoxLayout(BoxLayout.Y_AXIS);
         root.setLayout(rootLayout);
-        root.addComponent(new Label(" "));
         init1_root(root, null);
-        root.addComponent(new Label(" "));
         Label node1 = new Label();
         node1.setUIID("Title");
         node1.setText(com.codename1.ui.plaf.UIManager.getInstance().localize("contact details", "Contact Details"));
         if (node1.getClientProperty("__CN1ML_NO_ADD__") == null && root != node1.getParent()) {
             root.addComponent(node1);
         }
-        root.addComponent(new Label(" "));
         Container node2 = new Container();
         TableLayout node2Layout = new TableLayout(5, 2);
         node2.setLayout(node2Layout);
@@ -108,7 +105,6 @@ class ContactFormI18n {
         FlowLayout node10Layout = new FlowLayout();
         node10.setLayout(node10Layout);
         init7_node10(node10, node2);
-        node10.addComponent(new Label(" "));
         ComboBox node11 = new ComboBox();
         node11.setName("countrySelect");
         _nameIndex.put("countrySelect", node11);
@@ -116,7 +112,6 @@ class ContactFormI18n {
         if (node11.getClientProperty("__CN1ML_NO_ADD__") == null && node10 != node11.getParent()) {
             node10.addComponent(node11);
         }
-        node10.addComponent(new Label(" "));
         if (node10.getClientProperty("__CN1ML_NO_ADD__") == null && node2 != node10.getParent()) {
             node2.addComponent(node10);
         }
@@ -132,7 +127,6 @@ class ContactFormI18n {
         FlowLayout node13Layout = new FlowLayout();
         node13.setLayout(node13Layout);
         init10_node13(node13, node2);
-        node13.addComponent(new Label(" "));
         TextArea node14 = new TextArea();
         node14.setName("bio");
         _nameIndex.put("bio", node14);
@@ -141,21 +135,18 @@ class ContactFormI18n {
         if (node14.getClientProperty("__CN1ML_NO_ADD__") == null && node13 != node14.getParent()) {
             node13.addComponent(node14);
         }
-        node13.addComponent(new Label(" "));
         if (node13.getClientProperty("__CN1ML_NO_ADD__") == null && node2 != node13.getParent()) {
             node2.addComponent(node13);
         }
         if (node2.getClientProperty("__CN1ML_NO_ADD__") == null && root != node2.getParent()) {
             root.addComponent(node2);
         }
-        root.addComponent(new Label(" "));
         Label node15 = new Label();
         node15.setUIID("Title");
         node15.setText(com.codename1.ui.plaf.UIManager.getInstance().localize("preferences", "Preferences"));
         if (node15.getClientProperty("__CN1ML_NO_ADD__") == null && root != node15.getParent()) {
             root.addComponent(node15);
         }
-        root.addComponent(new Label(" "));
         Container node16 = new Container();
         TableLayout node16Layout = new TableLayout(1, 4);
         node16.setLayout(node16Layout);
@@ -204,7 +195,6 @@ class ContactFormI18n {
         if (node16.getClientProperty("__CN1ML_NO_ADD__") == null && root != node16.getParent()) {
             root.addComponent(node16);
         }
-        root.addComponent(new Label(" "));
         Button node23 = new Button();
         node23.setName("saveButton");
         _nameIndex.put("saveButton", node23);
@@ -212,8 +202,6 @@ class ContactFormI18n {
         if (node23.getClientProperty("__CN1ML_NO_ADD__") == null && root != node23.getParent()) {
             root.addComponent(node23);
         }
-        root.addComponent(new Label(" "));
-        root.addComponent(new Label(" "));
         return root;
     }
 
