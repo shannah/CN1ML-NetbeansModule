@@ -85,13 +85,21 @@ class CN1MLTest
   def testEscape:void
       assertEquals 'Washing\\"ton', CN1ML.new("foo.bar").escape('Washing"ton')
   end
-  */
+  
   $Test
   def testRooScript:void
       html = "<body><script>self.setScrollable(true);</script></body>"
       writer = CN1ML.new 'pkg.MyClass'
       classText = writer.buildClass html
       puts classText
+  end
+  */
+  $Test
+  def testTabs:void
+    html = "<tabs><div title=\"Tab 1\"></div></tabs>"
+    writer = CN1ML.new 'pkg.MyClass'
+    classText = writer.buildClass html
+    puts classText
   end
   
 end

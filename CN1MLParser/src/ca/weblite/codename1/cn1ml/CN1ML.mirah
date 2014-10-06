@@ -73,6 +73,37 @@ class CN1ML
     preprocessElement doc.body
   end
   
+  def preprocessTabsElement(el:Element):void
+    if el.attr('class').length == 0
+      el.attr 'class', 'Tabs'
+    end
+    el.children.each do |child|
+      scriptContent = StringBuilder.new
+      next if child.attr('title').length == 0
+      title = child.attr 'title'
+      title = if title.startsWith 'java:'
+        title.substring title.indexOf ':'+1
+      else
+        "\"#{escape(title)}\""
+      end
+      
+      if child.attr('icon').length > 0
+        icon = getImgSrc child.attr 'icon'
+        scriptContent << "parent.addTab(#{title}, #{icon}, self);\n"
+      else
+        scriptContent << "parent.addTab(#{title}, self);\n"
+      end
+      scriptContent << "self.putClientProperty(\"__CN1ML_NO_ADD__\", \"NO_ADD\");\n"
+      script = el.ownerDocument.createElement 'script'
+      script.appendChild DataNode.new scriptContent.toString, ""
+      child.appendChild script
+    end
+    
+    el.children.each do |child|
+      preprocessElement child
+    end
+  end
+  
   def preprocessTextAreaElement(el:Element):void
       textContent = el.text
       rows = if el.attr('rows') .length > 0
@@ -294,6 +325,8 @@ class CN1ML
       preprocessSelectElement el
     elsif 'textarea'.equals el.tagName
       preprocessTextAreaElement el
+    elsif 'tabs'.equals el.tagName or el.attr('class').endsWith 'Tabs'
+      self.preprocessTabsElement el
     else
       el.childNodes.each do |n| 
         if n.kind_of? Element
@@ -642,7 +675,11 @@ class CN1ML
   end
   
   def getImgSrc(el:Element):String
-    srcStr = el.attr 'src'
+    getImgSrc el.attr 'src'
+    
+  end
+  
+  def getImgSrc(srcStr:String):String
     if srcStr.startsWith 'res:'
       srcStr = srcStr.substring srcStr.indexOf(':')+1
       return "resources.getImage(\"#{escape(srcStr)}\")"
@@ -693,7 +730,7 @@ class CN1ML
     parentLayoutClass = getElementUIClass(Element(el.parentNode))
     
     constraint = getLayoutConstraint(el)
-    output << "if (#{parentVarName} != #{varName}.getParent()){\n"
+    output << "if (#{varName}.getClientProperty(\"__CN1ML_NO_ADD__\") == null && #{parentVarName} != #{varName}.getParent()){\n"
     if !constraint
       output << "#{parentVarName}.addComponent(#{varName});\n"
     else
