@@ -47,7 +47,7 @@ This document outlines the rules that are used by the CN1ML parser for convertin
 | `<script>` |Converted to Java code block |
 | `<body>` | `com.codename1.ui.Container` -- this is the root|
 
-All tags not listed in the above table are converted to `Container` objects, except in cases where the tag is a child of a "special component" that overrides the behaviour of its children (like a `<table>` with its `<tr>` tags).
+All tags not listed in the above table are converted to `Container` objects, except in cases where the tag is a child of a "special component" that overrides the behaviour of its children (like a `<table>` with its `<tr>` tags), and in cases where the `class` attribute explicitly specifies which component class to use.
 
 
 <hr>
