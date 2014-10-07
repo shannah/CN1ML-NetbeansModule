@@ -506,6 +506,8 @@ MyTemplate tpl = new MyTemplate(context);
 And inside the `MyTemplate.cn1ml` file, you could reference the *browserCallback*  object as follows:
 
 ~~~
+<body attributes="BrowserNavigationCallback browserCallback;">
+...
  <div class="com.codename1.components.WebBrowser" 
      name="browser" 
      layout-constraint="c"
@@ -513,6 +515,8 @@ And inside the `MyTemplate.cn1ml` file, you could reference the *browserCallback
      set:browserNavigationCallback="java:browserCallback"
  >
  </div>
+ ...
+</body>
 ~~~
 
 
