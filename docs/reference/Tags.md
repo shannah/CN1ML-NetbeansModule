@@ -17,6 +17,7 @@
 13. [Tabs](#tabs)
 14. [Scripts](#scripts)
 15. [Localization](#localization)
+16. [Setter Attributes](#setter-attributes)
 
 ##Overview
 
@@ -474,4 +475,53 @@ See also [Localization Example](../samples/Localization.md).
 
 For a brief introduction to localization in Codename One see this [How to video](http://www.codenameone.com/how-do-i---localizetranslate-my-application-apply-i18nl10n-internationalizationlocalization-to-my-app.html).
 
+##Setter Attributes
 
+**Since 0.1.6**
+
+For components with properties that follow the Java beans convention for setters (i.e. `setXXX(value)`), you can use HTML attributes of the form `set:XXX="value"`.  
+
+E.g.  To set the *URL* property of a `WebBrowser` you could use the `set:URL` attribute of the tag as follows:
+
+~~~
+ <div class="com.codename1.components.WebBrowser" 
+     name="browser" 
+     layout-constraint="c"
+     set:URL="http://www.codenameone.com"
+ >
+ </div>
+~~~
+
+Values of such attributes are interpreted the same way that `data-XXX` (i.e. [Client Properties](#putting-client-properties)) attributes are parsed.  Values are assumed to be strings, unless they are prefixed with `java:`.
+
+E.g. For setting the *browserNavigationCallback* property of the *WebBrowser*, we need to pass an actual Java object that implements the BrowserNavigationCallback interface.  To do this, we might pass the object to the template when we initialize it:
+
+~~~
+HashMap context = new HashMap();
+context.put("browserCallback", myBrowserNavCallback);
+MyTemplate tpl = new MyTemplate(context);
+// ... etc...
+~~~
+
+And inside the `MyTemplate.cn1ml` file, you could reference the *browserCallback*  object as follows:
+
+~~~
+ <div class="com.codename1.components.WebBrowser" 
+     name="browser" 
+     layout-constraint="c"
+     set:URL="http://www.codenameone.com"
+     set:browserNavigationCallback="java:browserCallback"
+ >
+ </div>
+~~~
+
+
+###Alternate 'dashed' syntax
+
+You can also use an alternate 'dashed' syntax for your `set:` attributes.  E.g.
+
+~~~
+set:browser-navigation-callback="java:browserCallback"
+~~~
+
+When the CN1ML parser generates the Java source, it will automatically convert this to Camel Case (i.e. capitalize the first letter of each word).
