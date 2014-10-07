@@ -168,12 +168,12 @@
             </module-dependencies>
             <public-packages/>
             <class-path-extension>
-                <runtime-relative-path>ext/jsoup-1.7.3.jar</runtime-relative-path>
-                <binary-origin>release/modules/ext/jsoup-1.7.3.jar</binary-origin>
-            </class-path-extension>
-            <class-path-extension>
                 <runtime-relative-path>ext/CN1MLParser.jar</runtime-relative-path>
                 <binary-origin>release/modules/ext/CN1MLParser.jar</binary-origin>
+            </class-path-extension>
+            <class-path-extension>
+                <runtime-relative-path>ext/jsoup-1.8.2-SNAPSHOT.jar</runtime-relative-path>
+                <binary-origin>release/modules/ext/jsoup-1.8.2-SNAPSHOT.jar</binary-origin>
             </class-path-extension>
         </data>
     </configuration>

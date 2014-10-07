@@ -93,7 +93,7 @@ class CN1MLTest
       classText = writer.buildClass html
       puts classText
   end
-  */
+  
   $Test
   def testTabs:void
     html = "<tabs><div title=\"Tab 1\"></div></tabs>"
@@ -105,6 +105,14 @@ class CN1MLTest
   $Test
   def testI18n:void
     html = "<tabs><div title='Tab 1' i18n:title='tab1'></div></tabs>"
+    writer = CN1ML.new 'pkg.MyClass'
+    classText = writer.buildClass html
+    puts classText
+  end
+  */
+  $Test
+  def testSetters:void
+    html = "<tabs set:URL='java:Component.TOP'><div title='Tab 1'>Hello</div></tabs>"
     writer = CN1ML.new 'pkg.MyClass'
     classText = writer.buildClass html
     puts classText

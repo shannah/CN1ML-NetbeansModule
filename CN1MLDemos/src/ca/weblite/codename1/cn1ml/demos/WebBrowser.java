@@ -129,8 +129,7 @@ class WebBrowser {
     }
 
     private void init4_node5(com.codename1.components.WebBrowser self, Container parent) {
-
-        self.setURL("http://www.codenameone.com/");
+        self.setURL("http://www.codenameone.com");
 
     }
 }

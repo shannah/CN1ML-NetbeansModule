@@ -11,6 +11,7 @@ import org.jsoup.nodes.XmlDeclaration;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import org.jsoup.helper.Format;
 
 
 /**
@@ -250,7 +251,7 @@ public abstract class Evaluator {
         Pattern pattern;
 
         public AttributeWithValueMatching(String key, Pattern pattern) {
-            this.key = key.trim().toLowerCase();
+            this.key = Format.formatAttributeName(key.trim());
             this.pattern = pattern;
         }
 
@@ -277,7 +278,7 @@ public abstract class Evaluator {
             Validate.notEmpty(key);
             Validate.notEmpty(value);
 
-            this.key = key.trim().toLowerCase();
+            this.key = Format.formatAttributeName(key.trim());
             if (value.startsWith("\"") && value.endsWith("\"")) {
                 value = value.substring(1, value.length()-1);
             }

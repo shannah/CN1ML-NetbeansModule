@@ -7,7 +7,10 @@ import java.io.ByteArrayInputStream
 import java.nio.charset.StandardCharsets
 import org.jsoup.nodes.TextNode
 import org.jsoup.nodes.DataNode
+import org.jsoup.parser.Parser
 import org.jsoup.Jsoup
+
+
 
 
 
@@ -69,6 +72,18 @@ class CN1ML
     buildClass ByteArrayInputStream.new html.getBytes(StandardCharsets.UTF_8)
   end
   
+  def buildClass(input:InputStream):String
+    
+    doc = Jsoup.parse(input, 'UTF-8', '/')
+    preprocessDom doc
+    output = StringBuilder.new
+    writeHeader(output, doc)
+    writeConstructor(output, doc)
+    writeUIBuilder(output, doc)
+    writeFooter(output)
+    output.toString
+  end
+  
   # DOM PREPROCESSING METHODS ##################################################
   # --------------------------
   # These methods are called prior to the conversion to transform the DOM into
@@ -77,9 +92,18 @@ class CN1ML
   # won't correspond to nested elements in the CN1 component model.
   
   
+  
   def preprocessDom(doc:Document):void
     preprocessI18n doc.body
     preprocessElement doc.body
+    preprocessSetters doc.body
+  end
+  
+  def preprocessSetters(el:Element):void
+    generateSetters el
+    el.children.each do |child|
+      preprocessSetters child
+    end
   end
   
   def preprocessTabsElement(el:Element):void
@@ -390,16 +414,7 @@ class CN1ML
     out.toArray Element[0]
   end
   
-  def buildClass(input:InputStream):String
-    doc = Jsoup.parse(input, 'UTF-8', '/')
-    preprocessDom doc
-    output = StringBuilder.new
-    writeHeader(output, doc)
-    writeConstructor(output, doc)
-    writeUIBuilder(output, doc)
-    writeFooter(output)
-    output.toString
-  end
+  
   
   def writeHeader(output:StringBuilder, doc:Document):void
     
@@ -754,6 +769,38 @@ class CN1ML
       el.attr "#{e.getKey}", "java:#{e.getValue}"
     end
     
+    
+  end
+  
+  def generateSetters(el:Element):void
+    scriptContent = StringBuilder.new
+    
+    el.attributes.each do |att|
+      if att.getKey.indexOf('set:') == 0
+        attName=att.getKey.substring(att.getKey.indexOf(':')+1)
+        parts = attName.split '-'
+        sb = StringBuilder.new
+        sb << "set"
+        parts.each do |part|
+          firstChar = part.substring(0,1).toUpperCase
+          remainder = if part.length>1
+            part.substring 1
+          else
+            ""
+          end
+          sb << "#{firstChar}#{remainder}"
+        end
+        
+        setter=sb.toString
+        val = quoteClientPropertyValue(att.getValue)
+        scriptContent << "self.#{setter}(#{val});\n"
+        
+      end
+    end
+    return if scriptContent.length==0
+    script = el.ownerDocument.createElement 'script'
+    script.appendChild DataNode.new scriptContent.toString, ""
+    el.appendChild script
     
   end
   

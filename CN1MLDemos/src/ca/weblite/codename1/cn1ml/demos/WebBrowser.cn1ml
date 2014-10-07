@@ -35,10 +35,11 @@
                 </script>
             </button>
         </div>
-        <div class="com.codename1.components.WebBrowser" name="browser" layout-constraint="c">
-            <script>
-                self.setURL("http://www.codenameone.com/");
-            </script>
+        <div class="com.codename1.components.WebBrowser" 
+             name="browser" 
+             layout-constraint="c"
+             set:URL="http://www.codenameone.com"
+        >
         </div>
     </body>
 </html>
