@@ -1,6 +1,7 @@
 package org.jsoup.parser;
 
 import org.jsoup.Jsoup;
+import org.jsoup.nodes.Attribute;
 import org.jsoup.nodes.Attributes;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
@@ -65,5 +66,12 @@ public class AttributeParseTest {
         String html = "<a href='&wr_id=123&mid-size=true&ok=&wr'>Check</a>";
         Elements els = Jsoup.parse(html).select("a");
         assertEquals("&wr_id=123&mid-size=true&ok=&wr", els.first().attr("href"));
+    }
+    
+    @Test public void caseSensitiveAttributeNames() {
+        String html = "<a set:HREF='&wr_id=123&mid-size=true&ok=&wr'>Check</a>";
+        Elements els = Jsoup.parse(html).select("a");
+        Attribute a = (Attribute)els.first().attributes().asList().get(0);
+        assertEquals("set:HREF", a.getKey());
     }
 }

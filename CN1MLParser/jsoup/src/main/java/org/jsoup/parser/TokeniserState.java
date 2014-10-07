@@ -1,5 +1,7 @@
 package org.jsoup.parser;
 
+import org.jsoup.helper.Format;
+
 /**
  * States and transition activations for the Tokeniser.
  */
@@ -643,7 +645,7 @@ enum TokeniserState {
         // from before attribute name
         void read(Tokeniser t, CharacterReader r) {
             String name = r.consumeToAny('\t', '\n', '\r', '\f', ' ', '/', '=', '>', nullChar, '"', '\'', '<');
-            t.tagPending.appendAttributeName(name.toLowerCase());
+            t.tagPending.appendAttributeName(Format.formatAttributeName(name));
 
             char c = r.consume();
             switch (c) {
