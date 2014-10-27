@@ -4,7 +4,6 @@ import org.jsoup.nodes.Document
 import org.jsoup.nodes.Element
 import org.jsoup.nodes.Node
 import java.io.ByteArrayInputStream
-import java.nio.charset.StandardCharsets
 import org.jsoup.nodes.TextNode
 import org.jsoup.nodes.DataNode
 import org.jsoup.parser.Parser
@@ -69,7 +68,7 @@ class CN1ML
   end
   
   def buildClass(html:String):String
-    buildClass ByteArrayInputStream.new html.getBytes(StandardCharsets.UTF_8)
+    buildClass ByteArrayInputStream.new html.getBytes('UTF-8')
   end
   
   def buildClass(input:InputStream):String
