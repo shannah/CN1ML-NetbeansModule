@@ -421,6 +421,7 @@ class CN1ML
       "package #{getPackage};\n" << 
       getImports(doc) << 
       "import com.codename1.ui.*;\n" <<
+      "import com.codename1.components.*;\n" <<
       "import com.codename1.ui.layouts.*;\n" <<
       "import com.codename1.ui.table.*;\n" <<
       "import com.codename1.ui.util.*;\n" <<
@@ -824,7 +825,7 @@ class CN1ML
     return String(@@UIClasses[el.tagName.toLowerCase]) if @@UIClasses[el.tagName.toLowerCase]
     if 'input'.equals el.tagName.toLowerCase
         type = el.attr 'type'
-        return 'TextField' if 'text'.equals type
+        return 'TextField' if 'text'.equals type or 'password'.equals type
         return 'CheckBox' if 'checkbox'.equals type
         return 'RadioButton' if 'radio'.equals type
         return 'Slider' if 'range'.equals type

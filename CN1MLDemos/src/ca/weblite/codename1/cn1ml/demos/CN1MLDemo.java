@@ -77,7 +77,8 @@ public class CN1MLDemo {
             "Default Sample Template",
             "Images Example",
             "My Old Form",
-            "Tabs Demo"
+            "Tabs Demo",
+            "Login Form"
         });
         final MainMenu m = new MainMenu(context);
         m.getMenuList().addActionListener(new ActionListener(){
@@ -102,6 +103,8 @@ public class CN1MLDemo {
                     showMyOldForm();
                 } else if ("Tabs Demo".equals(sel)){
                     showTabsDemo();
+                } else if ("Login Form".equals(sel)){
+                    showLoginDemo();
                 }
             }
             
@@ -162,6 +165,11 @@ public class CN1MLDemo {
     private void showTabsDemo(){
         TabsDemo f = new TabsDemo(newContext());
         createForm("Tabs Demo", f.getRoot()).show();
+    }
+    
+    private void showLoginDemo(){
+        LoginPanel f = new LoginPanel(newContext());
+        createForm("Login Demo", f.getRoot()).show();
     }
     
     private void showMyNewForm(){
