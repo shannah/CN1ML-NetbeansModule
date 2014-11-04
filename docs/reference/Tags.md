@@ -31,22 +31,24 @@ This document outlines the rules that are used by the CN1ML parser for convertin
 
 ##HTML Tags
 
-| HTML Tag		| Component |
-|--------------|-------------|
-| `<label>`      | `com.codename1.ui.Label`|
-| `<button>`     | `com.codename1.ui.Button`|
-| `<textarea>`   | `com.codename1.ui.TextArea`|
-| `<input type="text">` | `com.codename1.ui.TextField`|
-| `<input type="checkbox">` | `com.codename1.ui.CheckBox`|
-| `<input type="radio">` | `com.codename1.ui.RadioButton` |
-| `<select>` | `com.codename1.ui.ComboBox` |
-| `<select size="5">` | `com.codename1.ui.List`|
-| `<img>` | `com.codename1.ui.Label`|
-| `<table>` | `com.codename1.ui.Container`|
-| `<tabs>` | `com.codename1.ui.Tabs`|
-| `<div>` | `com.codename1.ui.Container`|
-| `<script>` |Converted to Java code block |
-| `<body>` | `com.codename1.ui.Container` -- this is the root|
+| HTML Tag		| Component | Since |
+|--------------|-------------|---|
+| `<label>`      | `com.codename1.ui.Label`| 0.1 |
+| `<label class="SpanLabel">`      | `com.codename1.ui.SpanLabel`| 0.1.6 |
+| `<button>`     | `com.codename1.ui.Button`| 0.1 |
+| `<textarea>`   | `com.codename1.ui.TextArea`| 0.1.6 |
+| `<input type="text">` | `com.codename1.ui.TextField`| 0.1 |
+| `<input type="password">` | `com.codename1.ui.TextField` with `PASSWORD` constraint |  0.1.6 |
+| `<input type="checkbox">` | `com.codename1.ui.CheckBox`| 0.1 |
+| `<input type="radio">` | `com.codename1.ui.RadioButton` | 0.1 |
+| `<select>` | `com.codename1.ui.ComboBox` | 0.1 |
+| `<select size="5">` | `com.codename1.ui.List`| 0.1 |
+| `<img>` | `com.codename1.ui.Label`| 0.1 |
+| `<table>` | `com.codename1.ui.Container`| 0.1 |
+| `<tabs>` | `com.codename1.ui.Tabs`| 0.1 |
+| `<div>` | `com.codename1.ui.Container`| 0.1 |
+| `<script>` |Converted to Java code block | 0.1 |
+| `<body>` | `com.codename1.ui.Container` -- this is the root| 0.1 |
 
 All tags not listed in the above table are converted to `Container` objects, except in cases where the tag is a child of a "special component" that overrides the behaviour of its children (like a `<table>` with its `<tr>` tags), and in cases where the `class` attribute explicitly specifies which component class to use.
 

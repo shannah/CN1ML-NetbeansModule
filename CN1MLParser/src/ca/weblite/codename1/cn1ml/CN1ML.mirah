@@ -597,6 +597,10 @@ class CN1ML
       end
     end
     
+    if 'password'.equals el.attr('type')
+      output << "#{varName}.setConstraint(TextArea.PASSWORD);\n"
+    end
+    
     if el.attr('uiid').length>0
       output << "#{varName}.setUIID(\"#{el.attr('uiid')}\");\n"
     end
@@ -703,7 +707,7 @@ class CN1ML
         else
           tx = ""
         end
-        if ['Label','Button'].contains className and tx.trim.length>0
+        if ['Label','Button','SpanLabel'].contains className and tx.trim.length>0
           output << "#{varName}.setText(#{tx});\n"
         elsif tx and tx.trim.length>0
           output << "#{varName}.addComponent(new Label(#{tx}));\n"
