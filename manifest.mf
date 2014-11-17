@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 AutoUpdate-Show-In-Client: true
 OpenIDE-Module: ca.weblite.codename1.netbeans.cn1ml
-OpenIDE-Module-Implementation-Version: 6
+OpenIDE-Module-Implementation-Version: 7
 OpenIDE-Module-Layer: ca/weblite/codename1/netbeans/cn1ml/layer.xml
 OpenIDE-Module-Localizing-Bundle: ca/weblite/codename1/netbeans/cn1ml/Bundle.properties
 

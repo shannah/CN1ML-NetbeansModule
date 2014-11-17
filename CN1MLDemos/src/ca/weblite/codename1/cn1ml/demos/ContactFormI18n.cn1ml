@@ -31,7 +31,13 @@
             </tr>
             <tr>
                 <td colspan="2">
-                    <textarea name="bio" rows="5" cols="30"></textarea>
+                    <textarea name="bio" rows="5" cols="30" i18n="bioval">
+                        <script>
+                            self.setText("barrrrrrrr");
+                            
+                        </script>
+                    </textarea>
+                    
                 </td>
             </tr>
         </table>

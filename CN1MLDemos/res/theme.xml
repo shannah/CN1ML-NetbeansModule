@@ -10,12 +10,13 @@
         <lang name="fr">
             <entry key="first name" value="Pr&#xe9;nom" />
             <entry key="France" value="France" />
-            <entry key="hardware" value="Mat&#xe9;riel" />
+            <entry key="bioval" value="Certains Anglais Bio texte" />
             <entry key="Canada" value="Canada" />
+            <entry key="hardware" value="Mat&#xe9;riel" />
             <entry key="Spain" value="Espagne" />
             <entry key="bio label" value="Bio (paragraphe)" />
-            <entry key="preferences" value="Pr&#xe9;f&#xe9;rences" />
             <entry key="last name" value="Nom de famille" />
+            <entry key="preferences" value="Pr&#xe9;f&#xe9;rences" />
             <entry key="United States" value="&#xc9;tats-Unis" />
             <entry key="save" value="Enregistrer" />
             <entry key="contact details" value="Coordonn&#xe9;es" />
@@ -25,12 +26,13 @@
         <lang name="en">
             <entry key="first name" value="First Name" />
             <entry key="France" value="France" />
+            <entry key="bioval" value="Some English Bio Text" />
+            <entry key="Canada" value="Canada" />
             <entry key="hardware" value="Hardware" />
             <entry key="Spain" value="Spain" />
-            <entry key="Canada" value="Canada" />
             <entry key="bio label" value="Bio (paragraph)" />
-            <entry key="preferences" value="Preferences" />
             <entry key="last name" value="Last Name" />
+            <entry key="preferences" value="Preferences" />
             <entry key="United States" value="United States" />
             <entry key="save" value="Save" />
             <entry key="contact details" value="Contact Details" />

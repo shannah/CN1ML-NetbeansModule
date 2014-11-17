@@ -163,21 +163,46 @@ class CN1ML
         script.appendChild DataNode.new "self.setColumns(#{cols});\n", ""
         div.appendChild script
       end
-      if textContent.length>0
+      
+      setTextLine = if el.attr('i18n').length > 0
+        "self.setText("+(i18n "\"#{escape el.attr 'i18n'}\"", "sb.toString()")+");"
+      elsif textContent.length>0
+        "self.setText(sb.toString());"
+      else
+        nil
+      end
+      
+      if setTextLine
         script = el.ownerDocument.createElement 'script'
-        script.appendChild DataNode.new "self.setText(\"#{escape textContent}\");\n", ""
+        script.appendChild DataNode.new "StringBuilder sb = new StringBuilder();", ""
+        if textContent.length>0
+          textContent.split("\\r?\\n").each do |line|
+            script.appendChild DataNode.new "sb.append(\"#{escape line}\");\n", ""
+            script.appendChild DataNode.new "sb.append(System.getProperty(\"line.separator\"));\n", ""
+          end
+        end
+          
+        script.appendChild DataNode.new setTextLine, ""
         div.appendChild script
       end
+      
+      childScripts = []
+      findChildren('script', el).each do |scr|
+        Element(scr).remove
+        childScripts.add scr
+      end
+      
       if el.attr('readonly').length>0
         script = el.ownerDocument.createElement 'script'
         script.appendChild DataNode.new "self.setEditable(false);\n", ""
         div.appendChild script
       end
       
-      findChildren('script', el).each do |scr|
-        scr.remove
-        div.appendChild(scr)
+      
+      childScripts.each do |scr|
+        div.appendChild(Element(scr))
       end
+      
       el.replaceWith(div)
   end
   

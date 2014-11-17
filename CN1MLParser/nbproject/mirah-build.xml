@@ -14,6 +14,9 @@
     </condition>
     <property name="test.binaryincludes" value="**/*Test.class"/>
     <property name="test.binarytestincludes" value="**/*Test.class"/>
+    <target name="-mirah-pre-init">
+        <mkdir dir="build/mirah"/>
+    </target>
     <target name="-mirah-init-macrodef-javac" unless="mirah.use_default_javac">
         <macrodef name="javac" uri="http://www.netbeans.org/ns/j2se-project/3">
             <attribute name="srcdir" default="${src.dir}"/>
@@ -45,7 +48,7 @@
                 </copy>
                 <delete dir="${mirah.tmp.macros.classes}"/>
                 <mkdir dir="${mirah.tmp.macros.classes}"/>
-                <mirahc dest="${mirah.tmp.macros.classes}" macrojardir="${mirah.macros.jardir}" javasourcespath="@{srcdir}" javastubdir="${mirah.java.stub.dir}" classcachedir="${mirah.class.cache.dir}">
+                <mirahc dest="${mirah.tmp.macros.classes}" macrojardir="${mirah.macros.jardir}" macroclasspath="@{classpath}" javasourcespath="@{srcdir}" javastubdir="${mirah.java.stub.dir}" classcachedir="${mirah.class.cache.dir}">
                     <javac srcdir="${mirah.tmp.macros.src}" classpath="@{classpath}" sourcepath="@{sourcepath}" includes="@{includes}" excludes="@{excludes}" debug="@{debug}" deprecation="${javac.deprecation}" encoding="${source.encoding}" source="${javac.source}" target="${javac.target}">
                         <compilerarg line="${javac.compilerargs}"/>
                         <customize/>
@@ -56,13 +59,13 @@
                 <copy todir="${mirah.tmp.macros.src}">
                     <fileset dir="@{srcdir}" includes="**/macros/Bootstrap.mirah"/>
                 </copy>
-                <mirahc dest="${mirah.tmp.macros.classes}" macrojardir="${mirah.macros.jardir}" macroclasspath="${mirah.tmp.macros.classes}" javasourcespath="@{srcdir}" javastubdir="${mirah.java.stub.dir}" classcachedir="${mirah.class.cache.dir}">
+                <mirahc dest="${mirah.tmp.macros.classes}" macrojardir="${mirah.macros.jardir}" macroclasspath="${mirah.tmp.macros.classes}:@{classpath}" javasourcespath="@{srcdir}" javastubdir="${mirah.java.stub.dir}" classcachedir="${mirah.class.cache.dir}">
                     <javac srcdir="${mirah.tmp.macros.src}" classpath="@{classpath}:${mirah.tmp.macros.classes}" sourcepath="@{sourcepath}" includes="@{includes}" excludes="@{excludes}" debug="@{debug}" deprecation="${javac.deprecation}" encoding="${source.encoding}" source="${javac.source}" target="${javac.target}">
                         <compilerarg line="${javac.compilerargs}"/>
                         <customize/>
                     </javac>
                 </mirahc>
-                <mirahc dest="${build.dir}/mirah" macrojardir="${mirah.macros.jardir}" macroclasspath="${mirah.tmp.macros.classes}" javastubdir="${mirah.java.stub.dir}" classcachedir="${mirah.class.cache.dir}" javasourcespath="@{srcdir}">
+                <mirahc dest="${build.dir}/mirah" macrojardir="${mirah.macros.jardir}" macroclasspath="${mirah.tmp.macros.classes}:@{classpath}" javastubdir="${mirah.java.stub.dir}" classcachedir="${mirah.class.cache.dir}" javasourcespath="@{srcdir}">
                     <javac srcdir="@{srcdir}" destdir="@{destdir}" classpath="@{classpath}" sourcepath="@{sourcepath}" includes="@{includes}" excludes="@{excludes}" debug="@{debug}" deprecation="${javac.deprecation}" encoding="${source.encoding}" source="${javac.source}" target="${javac.target}">
                         <compilerarg line="${javac.compilerargs}"/>
                         <customize/>

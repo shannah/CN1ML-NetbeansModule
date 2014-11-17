@@ -20,7 +20,8 @@ is divided into following sections:
 
         -->
 <project xmlns:j2seproject1="http://www.netbeans.org/ns/j2se-project/1" xmlns:j2seproject3="http://www.netbeans.org/ns/j2se-project/3" xmlns:jaxrpc="http://www.netbeans.org/ns/j2se-project/jax-rpc" basedir=".." default="default" name="CN1MLParser-impl">
-    <import file="mirah-build.xml"/>
+ <import file="mirah-build.xml"/>
+    
     <fail message="Please build using Ant 1.8.0 or higher.">
         <condition>
             <not>
@@ -876,7 +877,7 @@ is divided into following sections:
     <target depends="-init-ap-cmdline-properties,-init-ap-cmdline-supported" name="-init-ap-cmdline">
         <property name="ap.cmd.line.internal" value=""/>
     </target>
-    <target depends="-pre-init,-init-private,-init-user,-init-project,-do-init,-post-init,-init-check,-init-macrodef-property,-init-macrodef-javac,-init-macrodef-test,-init-macrodef-test-debug,-init-macrodef-nbjpda,-init-macrodef-debug,-init-macrodef-java,-init-presetdef-jar,-init-ap-cmdline" name="init"/>
+    <target depends="-pre-init,-init-private,-init-user,-init-project,-do-init,-post-init,-init-check,-init-macrodef-property,-init-macrodef-javac,-init-macrodef-test,-init-macrodef-test-debug,-init-macrodef-nbjpda,-init-macrodef-debug,-init-macrodef-java,-init-presetdef-jar,-init-ap-cmdline,-mirah-pre-init" name="init"/>
     <!--
                 ===================
                 COMPILATION SECTION
